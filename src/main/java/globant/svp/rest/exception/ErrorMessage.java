@@ -2,6 +2,8 @@ package globant.svp.rest.exception;
 
 public class ErrorMessage {
 
+	public static final String MESSAGE_TYPE_FIELD = "field-type";
+	public static final String MESSAGE_TYPE_OTHER = "other-type";
 	private String type;
 	private String attributeName;
 	private String message;

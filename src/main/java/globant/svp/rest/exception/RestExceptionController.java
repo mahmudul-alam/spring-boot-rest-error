@@ -55,7 +55,8 @@ public class RestExceptionController {
 	@ResponseBody
 	public ErrorMessage processServerException(ServerException ex) {
 
-		return new ErrorMessage("Error", "", ex.getMessage(), "Severe");
+		return new ErrorMessage(ErrorMessage.MESSAGE_TYPE_OTHER, null,
+				ex.getMessage(), "Severe");
 	}
 
 	@ExceptionHandler(CustomerExistException.class)
@@ -71,12 +72,11 @@ public class RestExceptionController {
 		ErrorMessageCollection errorMessageCol = new ErrorMessageCollection();
 
 		for (FieldError fieldError : fieldErrors) {
-
 			// String localizedErrorMessage =
 			// resolveLocalizedErrorMessage(fieldError);
-
-			errorMessageCol.addErrorMessages("Error", fieldError.getField(),
-					fieldError.getDefaultMessage(), "");
+			errorMessageCol.addErrorMessages(ErrorMessage.MESSAGE_TYPE_FIELD,
+					fieldError.getField(), fieldError.getDefaultMessage(),
+					"Severe");
 		}
 
 		return errorMessageCol;

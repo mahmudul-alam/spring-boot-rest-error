@@ -1,6 +1,9 @@
 package globant.svp.core.exception;
 
 public class ServerException extends RuntimeException {
+
+	private static final String defaultMessage = "Internal Server Error";
+
 	public ServerException(String message, Throwable cause) {
 		super(message, cause);
 	}
@@ -10,6 +13,6 @@ public class ServerException extends RuntimeException {
 	}
 
 	public ServerException() {
-		super();
+		super(defaultMessage);
 	}
 }

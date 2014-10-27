@@ -1,5 +1,7 @@
 package globant.svp.core.domain;
 
+import globant.svp.core.service.validation.CustomerCheck;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Repository;
 
 @Repository(value = "CustomerDTOJDBC")
+@CustomerCheck
 public class Customer implements Entity, Serializable {
 
 	/**

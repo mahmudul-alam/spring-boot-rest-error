@@ -1,6 +1,8 @@
 package globant.svp.core.exception;
 
 public class CustomerExistException extends RuntimeException {
+	
+	private static final String defaultMessage = "Resource Already Exist"; 
 	public CustomerExistException(String message, Throwable cause) {
 		super(message, cause);
 	}
@@ -10,6 +12,6 @@ public class CustomerExistException extends RuntimeException {
 	}
 
 	public CustomerExistException() {
-		super();
+		super(defaultMessage);
 	}
 }
