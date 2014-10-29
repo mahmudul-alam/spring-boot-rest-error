@@ -54,10 +54,7 @@ public class CustomerDAOJDBC implements GenericDAO {
 							+ "',"
 							+ ((Customer) entity).getZip() + ")");
 
-			System.out.println("__________________________________");
-
-			System.out.println(sqlQuery.toString());
-
+			
 			int count = stmt.executeUpdate(sqlQuery.toString());
 
 			stmt.close();
@@ -88,7 +85,7 @@ public class CustomerDAOJDBC implements GenericDAO {
 				entity.setFirstName(rs.getString("FIRSTNAME"));
 				entity.setMiddleInitial(rs.getString("MIDDLEINITIAL"));
 				entity.setLastName(rs.getString("LASTNAME"));
-				entity.setDob(rs.getDate("DOB"));
+				//entity.setDob(rs.getDate("DOB"));
 				entity.setPhone(rs.getString("PHONE"));
 				entity.setCity(rs.getString("CITY"));
 				entity.setState(rs.getString("STATE"));
@@ -170,7 +167,7 @@ public class CustomerDAOJDBC implements GenericDAO {
 				entity.setFirstName(rs.getString("FIRSTNAME"));
 				entity.setMiddleInitial(rs.getString("MIDDLEINITIAL"));
 				entity.setLastName(rs.getString("LASTNAME"));
-				entity.setDob(rs.getDate("DOB"));
+				//entity.setDob(rs.getDate("DOB"));
 				entity.setPhone(rs.getString("PHONE"));
 				entity.setCity(rs.getString("CITY"));
 				entity.setState(rs.getString("STATE"));

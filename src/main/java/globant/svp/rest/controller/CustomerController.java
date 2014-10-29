@@ -69,7 +69,7 @@ public class CustomerController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity addCustomer(@Valid @RequestBody final Customer entity) {
+	public ResponseEntity addCustomer(/*@Valid*/ @RequestBody final Customer entity) {
 
 		genericService.addService(entity);
 		return new ResponseEntity(entity, HttpStatus.CREATED);

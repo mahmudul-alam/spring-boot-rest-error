@@ -10,8 +10,11 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Repository;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Repository(value = "CustomerDTOJDBC")
 @CustomerCheck
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Customer implements Entity, Serializable {
 
 	/**
@@ -27,7 +30,7 @@ public class Customer implements Entity, Serializable {
 	private String middleInitial;
 	@Length(max=50, message="Length Cannot be more than 50 Character")
 	private String lastName;
-	private Date dob;
+//	private Date dob;
 	private String phone;
 	private String city;
 	private String state;
@@ -82,7 +85,7 @@ public class Customer implements Entity, Serializable {
 		this.lastName = lastName;
 	}
 
-	public Date getDob() {
+	/*public Date getDob() {
 		if (dob == null)
 			return new java.util.Date();
 		return dob;
@@ -90,7 +93,7 @@ public class Customer implements Entity, Serializable {
 
 	public void setDob(Date dob) {
 		this.dob = dob;
-	}
+	}*/
 
 	public String getPhone() {
 		if (phone == null)

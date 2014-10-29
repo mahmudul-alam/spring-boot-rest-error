@@ -14,7 +14,6 @@ public class CustomerValidation implements Validation {
 				"Some First Attribute validation failed", null);
 
 		exception.addErrorMessages(message);
-		System.out.println("Enter Here");
 		throw exception;
 	}
 

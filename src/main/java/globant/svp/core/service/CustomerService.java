@@ -1,7 +1,9 @@
 package globant.svp.core.service;
 
 import globant.svp.core.dao.GenericDAO;
+import globant.svp.core.domain.Customer;
 import globant.svp.core.domain.Entity;
+import globant.svp.core.exception.CustomerExistException;
 import globant.svp.core.service.validation.CustomerValidation;
 
 import java.util.HashMap;
@@ -25,17 +27,25 @@ public class CustomerService implements GenericService {
 
 	@Override
 	public Entity addService(Entity entity) {
-		Map<String, String> requestParam = new HashMap();
 
 		// validate before persist
-		CustomerValidation validation = new CustomerValidation();
+		// CustomerValidation validation = new CustomerValidation();
 
 		// validate customer exist or not
-		//validation.isCustomerExist();
+		// validation.isCustomerExist();
 
 		// some more validation
-		validation.validationMethodThatThrowServerError();
+		// validation.validationMethodThatThrowServerError();
 
+		
+		Map<String, String> requestParam = new HashMap();
+		requestParam.put("ACCOUNT",
+				new Long(((Customer) entity).getAccount()).toString());
+		if (genericDAO.getAllEntityByRequestParam(requestParam).size() > 0) {
+			throw new CustomerExistException();
+		} else {
+			genericDAO.addEntity(entity);
+		}
 		return entity;
 	}
 
